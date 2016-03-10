@@ -766,8 +766,11 @@ class BatchJobHelper(object):
         AttributeError: if the provided XML isn't from AdWords.
       """
       root = ElementTree.fromstring(raw_request_xml.encode('utf-8'))
-      return root.find('{http://schemas.xmlsoap.org/soap/envelope/}Body').find(
-          '%smutate' % self._adwords_namespace)
+      body = root.find('{http://schemas.xmlsoap.org/soap/envelope/}Body')
+      res = body.find('%smutate' % self._adwords_namespace)
+      if res is None:
+          res = body.find('%smutateLabel' % self._adwords_namespace)
+      return res
 
   def __init__(self, request_builder, response_parser,
                version=sorted(_SERVICE_MAP.keys())[-1]):
