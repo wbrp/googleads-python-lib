@@ -523,7 +523,7 @@ class BatchJobHelper(object):
              'mutate'),
             ('AdGroupCriterionOperation', 'AdGroupCriterionService',
              'mutate'),
-            ('AdGroupCriterionLabelOperation', 'AdGroupCriterionServce',
+            ('AdGroupCriterionLabelOperation', 'AdGroupCriterionService',
              'mutateLabel'),
             ('AdGroupOperation', 'AdGroupService', 'mutate'),
             ('AdGroupLabelOperation', 'AdGroupService', 'mutateLabel'),
